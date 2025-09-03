@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 function Navbar() {
   const location = useLocation();
   const routes = [
-    { path: "/", label: "Accueil" },
+    { path: "/home", label: "Accueil" },
     { path: "/omra", label: "Omra" },
     { path: "/omra-combinee", label: "Omra combinée" },
     { path: "/hajj", label: "Hajj" },
