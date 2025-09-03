@@ -12,25 +12,39 @@ import NosServices from './components/NosServices';
 import MonCompte from './components/MonCompte';
 import EspaceClient from './components/EspaceClient';
 import { Footer } from './components/Footer'
+import AdminLayout from './components/admin/AdminLayout';
+import InfosClients from './components/admin/InfosClients';
 
 function App() {
   return (
     <div className='min-h-screen bg-background' >
       <Router>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Navigate to="/hajj" replace />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/hajj" element={<Hajj />} />
-          <Route path="/omra" element={<Omra />} />
-          <Route path="/omra-combinee" element={<OmraCombinee />} />
-          <Route path="/voyages-monde" element={<VoyagesMonde />} />
-          <Route path="/nos-services" element={<NosServices />} />
-          <Route path="/mon-compte" element={<MonCompte />} />
-          <Route path="/espace-client" element={<EspaceClient />} />
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Navigate to="/admin/infos-clients" replace />} />
+            <Route path="infos-clients" element={<InfosClients />} />
+          </Route>
+          
+          {/* Client Routes */}
+          <Route path="/*" element={
+            <>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Navigate to="/hajj" replace />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/hajj" element={<Hajj />} />
+                <Route path="/omra" element={<Omra />} />
+                <Route path="/omra-combinee" element={<OmraCombinee />} />
+                <Route path="/voyages-monde" element={<VoyagesMonde />} />
+                <Route path="/nos-services" element={<NosServices />} />
+                <Route path="/mon-compte" element={<MonCompte />} />
+                <Route path="/espace-client" element={<EspaceClient />} />
+              </Routes>
+              <Footer />
+            </>
+          } />
         </Routes>
-        <Footer />
       </Router>
     </div>
 
