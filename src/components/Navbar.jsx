@@ -92,7 +92,7 @@ function Navbar() {
                 ))}
                 <div className="border-t border-gray-200 pt-3 mt-2 space-y-3">
                   <Link
-                    to="/mon-compte"
+                    to="/admin"
                     className="text-gray-700 hover:text-gray-900 flex items-center pl-2 py-1"
                     onClick={() => setIsMenuOpen(false)}
                   >
